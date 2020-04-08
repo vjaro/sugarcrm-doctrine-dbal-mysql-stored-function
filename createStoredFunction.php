@@ -41,8 +41,7 @@ function createStoredFunction()
     if($conn){
         $query = "getAge.sql";
         $contents = file_get_contents($query);
-        $stmt = $conn->prepare($contents);
-        $res = $stmt->execute();
+        $res = $conn->executeQuery($contents);
         if (!$res){
             return "failed to install stored function \n";
         }else{
